@@ -30,8 +30,16 @@
                 <p class="post-meta">
                     enviada  por
                     <a href="#!">{{ mensagem.nome }}</a>
+                    {% if mensagem.cidade %}
                     em {{ mensagem.cidade }}
+                    {% endif %}
                 </p>
+                <a href="{% url 'editar_mensagem' mensagem.id %}">
+                    <button class="btn btn-warning btn-sm">Editar</button>
+                </a>
+                <a href="{% url 'deletar_mensagem' mensagem.id %}">
+                    <button class="btn btn-danger btn-sm">Deletar</button>
+                </a>
             </div>
             <!-- Divider-->
             <hr class="my-4" />
