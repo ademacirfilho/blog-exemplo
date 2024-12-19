@@ -32,11 +32,13 @@ def contact(request):
         form = MensagemForm(request.POST)
         if form.is_valid():
             form.save()
-
-        return redirect('message')
+            return redirect('message')
+        else:
+            context["form"] = form
     else:
-        context["form"] = MensagemForm
-        return render(request, "contact.html", context)
+        context["form"] = MensagemForm()
+       
+    return render(request, "contact.html", context)
     
 def message(request):
     context = {
