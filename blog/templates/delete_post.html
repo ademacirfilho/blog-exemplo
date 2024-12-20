@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static crispy_forms_tags %}
+{% load static %}
 
 {% block header %}
 <!-- Page Header-->
@@ -8,8 +8,8 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="page-heading">
-                    <h1>Contato</h1>
-                    <span class="subheading">Dúvidas? Eu tenho respostas.</span>
+                    <h1>Deletar Post</h1>
+                    <span class="subheading">Apagar Post.</span>
                 </div>
             </div>
         </div>
@@ -23,12 +23,15 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <p>Quer entrar em contanto? Envie-me uma mensagem e responderei assim que possível.</p>
-                    <div class="my-5">
-                        <form id="contactForm" method="POST">
-                            {% csrf_token %}
-                            {% crispy form %}
-                        </form>
+                    <div class="text-center">
+                    <h3 class="pb-4">Tem certeza?</h3>
+                    <form id="contatcForm" method="POST">
+                        {% csrf_token %}
+                        <button class="btn btn-danger text-uppercase" id="submitButton" type="submit">Sim</button>
+                        <a href="{% url 'index' %}">
+                            <button class="btn btn-secondary text-uppercase" id="submitButton" type="submit">Não</button>
+                        </a>
+                    </form>
                     </div>
                 </div>
             </div>

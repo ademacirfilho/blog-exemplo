@@ -8,8 +8,8 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="page-heading">
-                    <h1>Contato</h1>
-                    <span class="subheading">Dúvidas? Eu tenho respostas.</span>
+                    <h1>Novo Post</h1>
+                    <span class="subheading">Crie um novo Post.</span>
                 </div>
             </div>
         </div>
@@ -25,9 +25,10 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <p>Quer entrar em contanto? Envie-me uma mensagem e responderei assim que possível.</p>
                     <div class="my-5">
-                        <form id="contactForm" method="POST">
+                        <form id="contactForm" method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
-                            {% crispy form %}
+                            {{ form | crispy }}
+                            <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Enviar</button>
                         </form>
                     </div>
                 </div>
